@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:iitj_ram/Maps/Directions_repository.dart';
+import 'package:iitj_ram/Screen/AR_World.dart';
 
 import 'package:iitj_ram/constants.dart';
 import 'package:iitj_ram/Maps/directions.dart';
@@ -235,7 +236,8 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const Scaffold(
-            backgroundColor: Colors.red,
+            // backgroundColor: Color.fromARGB(255, 67, 244, 54),
+            body: Ar_World(),
           ),
           const Scaffold(
             backgroundColor: Colors.red,
