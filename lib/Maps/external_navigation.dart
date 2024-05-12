@@ -9,6 +9,8 @@ import 'package:iitj_ram/constants.dart';
 import 'package:iitj_ram/Maps/directions.dart';
 
 import 'package:iitj_ram/Maps/map.dart';
+import 'package:iitj_ram/home.dart';
+import 'package:iitj_ram/main.dart';
 import 'package:iitj_ram/try.dart';
 
 import 'package:motion_tab_bar/MotionTabBarController.dart';
@@ -25,19 +27,36 @@ class ExternalNavigation extends StatefulWidget {
 
 class _ExternalNavigationState extends State<ExternalNavigation> {
   String? category = "All Places";
+  int index = 0;
   @override
   void initState() {
     category = widget.category;
+    index = 0;
     super.initState();
   }
 
   MotionTabBarController? _controller;
-  int index = 0;
+
   int i = 0;
   @override
   Widget build(BuildContext context) {
+    print("Hi");
+    print(index);
     List<String> places = cat[widget.category]!;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.popUntil(context, (route) => false);
+          Navigator.push(
+              context,
+              CupertinoPageRoute(
+                  builder: (context) => HomePage(
+                        category: 'All Places',
+                        index: 2,
+                      )));
+        },
+        child: Icon(Icons.home),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -99,21 +118,19 @@ class _ExternalNavigationState extends State<ExternalNavigation> {
                           print(destination);
                           if (destination!.latitude != 0.0 &&
                               destination!.longitude != 0.0) {
-                            Position position = await getCurrentLocation();
-                            print(position.latitude);
-                            print(position.longitude);
                             Directions? info = await Directions_Repository()
                                 .getDirections(
-                                    origin: LatLng(
-                                        position.latitude, position.longitude),
+                                    origin: LatLng(currentLocation.latitude,
+                                        currentLocation.longitude),
                                     destination: destination!);
                             Navigator.push(
                                 context,
                                 CupertinoDialogRoute(
                                     builder: (context) => MapScreen(
                                           category: widget.category,
-                                          origin: LatLng(position.latitude,
-                                              position.longitude),
+                                          origin: LatLng(
+                                              currentLocation.latitude,
+                                              currentLocation.longitude),
                                           destination: destination!,
                                           info: info!,
                                         ),
@@ -152,7 +169,7 @@ class _ExternalNavigationState extends State<ExternalNavigation> {
                   )
                 ]),
               )
-            ][index]
+            ][index],
           ],
         ),
       ),

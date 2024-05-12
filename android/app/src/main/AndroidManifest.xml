@@ -1,12 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-<uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.ar" />
     <application
-        android:label="iitj_ram"
+        android:label="IITJ RAM"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -36,6 +38,7 @@
         <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="AIzaSyAseTCw71BRsN-ALyTC1DUmQ50yq3El2eY"/>
+    
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility?hl=en and

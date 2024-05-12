@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:iitj_ram/Maps/directions.dart';
+import 'package:iitj_ram/Maps/external_navigation.dart';
 
 import 'package:iitj_ram/home.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -40,11 +41,12 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       backgroundColor: Colors.white,
-      /* appBar: AppBar(
+      appBar: AppBar(
+        backgroundColor: Colors.pink[50],
         leading: IconButton(
             onPressed: () {
+              Navigator.pop(context);
               Navigator.pop(context);
               Navigator.push(
                   context,
@@ -53,7 +55,7 @@ class _MapScreenState extends State<MapScreen> {
                           ExternalNavigation(category: widget.category))));
             },
             icon: Icon(Icons.arrow_back)),
-      ),*/
+      ),
       body: Column(
         children: [
           Container(
@@ -95,7 +97,7 @@ class _MapScreenState extends State<MapScreen> {
             ),
           ),
           Container(
-            height: 150,
+            height: MediaQuery.sizeOf(context).height * 0.196,
             width: MediaQuery.sizeOf(context).width,
             decoration: BoxDecoration(
               color: Colors.pink[50],

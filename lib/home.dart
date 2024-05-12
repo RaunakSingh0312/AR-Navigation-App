@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:iitj_ram/Ar_World.dart';
 import 'package:iitj_ram/Maps/Directions_repository.dart';
 
 import 'package:iitj_ram/constants.dart';
@@ -14,9 +15,9 @@ import 'package:iitj_ram/try.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
 import 'package:motion_tab_bar/MotionTabBarController.dart';
 
-int i = 2;
+int i = 1;
 
-List<String> tabs = ["About Us", "Go", "Home", "AR World", "Explore"];
+List<String> tabs = ["Go", "Home", "AR World"];
 
 class HomePage extends StatefulWidget {
   final int index;
@@ -50,13 +51,11 @@ class _HomePageState extends State<HomePage> {
           tabIconSize: 35,
           controller: _controller,
           initialSelectedTab: tabs[widget.index],
-          labels: const ["About Us", "Go", "Home", "AR World", "Explore"],
+          labels: const ["Go", "Home", "AR World"],
           icons: const [
-            Icons.abc,
             Icons.location_pin,
             Icons.home,
             Icons.home_max_rounded,
-            Icons.explore
           ],
           onTabItemSelected: (int value) {
             setState(() {
@@ -65,9 +64,6 @@ class _HomePageState extends State<HomePage> {
           },
         ),
         body: [
-          const Scaffold(
-            backgroundColor: Colors.red,
-          ),
           ExternalNavigation(category: widget.category),
           SingleChildScrollView(
             child: Stack(
@@ -224,7 +220,7 @@ class _HomePageState extends State<HomePage> {
                   top: 50,
                   left: 20,
                   child: Text(
-                    "ARNav",
+                    "IITJ RAM",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 50,
@@ -234,15 +230,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          const Scaffold(
-            backgroundColor: Colors.red,
-          ),
-          const Scaffold(
-            backgroundColor: Colors.red,
-          ),
-          const Scaffold(
-            backgroundColor: Colors.red,
-          ),
+          Ar_World(),
         ][i]);
   }
 }
@@ -268,7 +256,7 @@ class _BoxState extends State<Box> {
             context,
             CupertinoPageRoute(
                 builder: ((context) =>
-                    HomePage(category: widget.text, index: 1))));
+                    HomePage(category: widget.text, index: 0))));
       },
       child: Container(
         padding: const EdgeInsets.only(top: 20),
