@@ -1,16 +1,8 @@
 # IITJ Ram- Roads and Maps
 
-A new Flutter project.
+A Flutter and Ar Core Project
 
-## Getting Started
+## Use Case
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- This project is a useful asset to those navigating at the campus of Indian Institute of Technology, Jodhpur.
+- This uses Augmented Reality to navigate within the building and Google Maps for navigation on Roads.
